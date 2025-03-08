@@ -13,20 +13,20 @@
 		</h1>
 
 		<p>
-			<strong>Your Name</strong> — <em>Your MIT Email Address</em>
+			<strong>Audrey Wei</strong> — <em>weia@mit.edu</em>
 		</p>
 	</header>
 
 	<main>
-    <h2>Proposition: [STATE PROPOSITION]</h2>
+    <h2>Proposition: Renewable Energy is Emerging As the Future of Global Power Generation. </h2>
 
 		<section>
       <h3>FOR the Proposition</h3>
 
       <figure>
-				<img src="./Vis &amp; Society Assignment 4_files/IMAGE_FILENAME" alt="">
+				<img src="a4_viz1.png" alt="">
 				<figcaption>
-					BRIEF CAPTION HERE.
+					This visualization shows a multi-line graph illustrating the percent increase in power generation from 2000 to 2023 for renewable energy sources including bioenergy, hydropower, solar, and wind, as well as non-renewable fossil fuels for countries in G20. The data demonstrates the rapid acceleration of solar and wind energy among other renewable energy sources, as opposed to the stagnant trends of fossil fuels, showing the global shift toward renewables.
 				</figcaption>
 			</figure>
 
@@ -35,9 +35,13 @@
 			</p>
 
 			<ul>
-				<li>RATIONALE_1</li>
-				<li>RATIONALE_2</li>
-				<li>RATIONALE_3</li>
+				<li>Data transformations (1.5): Our data is taken from the IMF Climate Change Dashboard. I first had to reshape the data into a time series format and separate energy types for each year, so I had to convert this data from wide format to long format, which I performed using a Python script to pivot the data. I grouped the data to only use the G20 countries. By only considering G20 (the international economic cooperation of major economies) this graph could appear socioeconomically biased. However, this decision was made as the largest economies logically have the most influence over power generation, and in particular, the move to renewable energy. I filtered the data to only include power generation in megawatts. I also added a new column for a calculated field of percent change in power generation for each energy source over a time series and automated the calculations. Most of these transformations are standard, but only considering G20 and using percentages instead of scalars can be seen as deceptive as it may not be representative of all countries and the whole picture of power generation. But this descriptive documentation of my data transformations does contribute to these transformations being earnest.
+</li>
+				<li>Use of percent instead of scalar (score: 0.5): This is the most deceptive strategy out of my design choices, as while the percent power generation increases may seem like renewable energy sources are dominant, in terms of scalar values, fossil fuels are actually dominant. However, by using percent increases, I can show the trend of renewable energies growing faster than fossil fuels, implying their applicability to the future. While I did not lie about using percentages, percent change can be a misleading trend, especially toward audiences not familiar with how percentages work.
+</li>
+				<li>Multicolor line graphs (score: 2): A variety of different colors are used to show the trends in the power generation of different energy sources. A previous approach used bar graphs and other data forms, but I found the multi-line graph had the cleanest visualization and least clutter, making the graph easier to read and interpret, especially with so many lines and colors. However, there are still a lot of lines for the reader to look through, and the purple and red lines (fossil fuel and hydropower) are close together and hard to tell apart, so I would try to find a way to fix that on future iterations, such as by making the colors contrast more or scaling the y-axis to separate the lines more.
+</li>
+				<li>Color palette, legend, title (score: 1.5): The vertical axis rotated 90 degrees is purposely to draw attention away from the word “Percent”, as this takes away from the validity of our stated growth trend, a bit of a deceptive tactic. I used a vibrant color palette to help differentiate between the different lines/energy types, which is an earnest strategy. </li>
 			</ul>
     </section>
 
@@ -45,9 +49,10 @@
       <h3>AGAINST the Proposition</h3>
 
       <figure>
-				<img src="./Vis &amp; Society Assignment 4_files/IMAGE_FILENAME" alt="">
+				<img src="a4_viz2.png" alt="">
 				<figcaption>
-          BRIEF CAPTION HERE.
+          This graph provides a global visualization of power generation from 2000 to 2023, fusing a heatmap and pie charts to illustrate both total energy production and the share of renewable vs. non-renewable sources by country. The heatmap colors represent the total power generated, with darker shades indicating higher output. The pie charts overlay each country, where green represents renewable energy and gray denotes non-renewable energy, painting a complete picture of global power sources. We clearly see countries with the highest power generation, including the United States, China, and Russia, have predominantly non-renewable energy power generation for the last 4 years, implying that fossil fuels are the backbone of global power generation and the switch to renewables is yet to come.
+
 				</figcaption>
 			</figure>
 
@@ -56,16 +61,26 @@
 			</p>
 
 			<ul>
-				<li>RATIONALE_1</li>
-				<li>RATIONALE_2</li>
-				<li>RATIONALE_3</li>
+				<li>Data transformations (score: 1.5): Our data is taken from the IMF Climate Change Dashboard. I focused on years 2000-2023, as these years had the most complete data. For countries with a few missing data points, I performed linear regression across nearby points. To prevent overcrowding on the visualization, I filtered to show only countries that had at least 1,000 MW of total power generation output in 2023, which is a reasonable significance bound because the maximum is around 8.3 million MW. I also filtered data to only show individual countries and also only data in megawatts to prevent errors. I filtered out unreasonable outliers, which could be slightly deceptive. In addition, I made a new column for “Total Renewable Energy Power Generation” which summed over bioenergy, solar power, wind energy, and hydropower’s power generation for each country. This column is used for the pie chart component of my visualization design. I made another column for a calculated field to sum up the total power generation for each country, which is used for the heat map component of my design. Most of these techniques are pretty standard and earnest, especially by documenting and communicating these decisions, but I took off 0.5 in the case that filtering and focusing on recent years is not entirely representative of the data.
+</li>
+				<li>Heat map (score: 1.5): I designed a heat map of total power generation using the average of the yearly power generation outputs (in megawatts) of each country over the years 2000 to 2023. I used the average of the most recent 4 years as these have the most data and are most representative of current and future energy trends. I also scaled the gradient coloring so that the reader can clearly differentiate between the colors of different countries. These are pretty standard and earnest practices, but I took off 0.5 points for only using 4 years of recent data, as this could be seen as deceptive.
+</li>
+				<li>Pie charts (score: 2): I overlaid pie charts, with the green section being the renewable energy portion, and the grey section being the non-renewable energy portion of power generation. This decision is completely earnest as pie charts are commonplace and the design of this pie chart is quite neutral. I previously tried scaling the size of the pie chart for the amount of power generation for the country instead of using a heatmap (for a simpler visualization), but this led to pie charts being too small and unreadable and a lack of ability for magnitude estimation for circular objects, so I decided on uniformly scaled pie charts instead. </li>
+				<li>Fusion of heat map and pie chart (score: 1): I used some deception here - since the countries with majority renewable energy generation are in Europe, they are clustered closer together geographically on the map, so they do not stand out as much as the pie charts of the United States or Russia. By setting the background of the map to be darker, I make the white (lower power generation) stand out more, making it more obvious that these European countries with more renewable energy have a lower power generation output. I gave this score a 1 as it is earnest or deceptive based on how you look at it - I could be drawing focus to a trend, or unfairly emphasizing it. While this resulted in a comprehensive and visually interesting visualization, it is still a bit complex and overwhelming. Increasing the amount of visualized information comes at the cost of simplicity.
+</li>
+				<li>Color palette, legend, title (score 1.5): I used a cool winter color palette, avoiding bold/emotional colors like red or orange that may sway a reader, to make the visualization as calm and neutral as possible. I previously tried using shades of red to represent higher power generation, but it made the graph look too chaotic, so I switched to blue. Since there’s many elements, including colors, countries, and pie charts, I used more toned down colors to make the pie chats stand out while also seeing the gradients. I gave a descriptive title and caption to make it clear what the visualization is communicating, and minimize confusion from all the things on the graph. The legend on the right also gives a standard explanation of the meanings of each of the colors. These are all earnest decisions. However, making the renewable energy green is a bit deceptive, as it biases the reader to think it is good, and making non-renewable energy grey (a design choice meant to reduce noise of the visualization) could be seen as deceptively trying to make it blend with the background to emphasize the smaller renewable energy shares. That being said, if I could iterate over this visualization in the future, I would like to find a way to simplify it even further to communicate all this data with an even simpler visualization. I would also try to find a way to improve pre-attentive processing of my visualization, such that important trends and values pop out more. </li>
 			</ul>
     </section>
 
     <section>
       <h2>Final Reflection</h2>
 
-      <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+        <p>My overall design process for my first visualization was trying to find the most convincing way to show the potential for renewable energies to grow in the future, and to showcase trends that imply the future growth and adoption of renewables over fossil fuels. Graphing percent change was an effective strategy for this, and it helped that solar energy and wind energy lines had a slight spike in 2023 (at the end of the time series), opening the reader’s imagination to further growth in the future. My design process for the map and pie chart fusion was very long and iterative, as I wanted to try my hand at designing a higher-level and more information-dense graph, without it looking too messy. I think these graphs have very different strategies for arguing for vs. against the proposition - by showing simple line trends in graph 1, I argue for the proposition that renewable energy generation is on the rise. However, by seeing the big picture across the map and many pie charts, it becomes evident that the biggest energy generation countries are still largely dependent  on fossil fuels. Both visualizations use different data forms and parts of the data to tell different stories.  </p>
+	<p>I was surprised that the most difficult part for both visualizations was the data transformations. It was hard to decide what transformations would most accurately showcase certain data trends and support my proposition, without changing the data to the point of being biased. This made me wonder what techniques in filtering, adding columns, and editing data can truly be earnest, and if, similar to our readings, raw data is truly the only earnest data form that exists. I think the most straightforward part was the actual conversion of the processed data to graphs, as that process is quite standard. For most design choices, I think I leaned towards earnest decisions, as those are the choices that made most sense.  </p>
+	<p>I observed that most of my decisions were not completely earnest nor deceptive. I struggled to draw the line between earnest and deceptive practices (is only considering 4 years of data earnest or deceptive?) and for most of my decisions, I could not even tell if I was being earnest or deceptive. In this regard, this exercise was very helpful in trying to backtrack my own thought process and make better design decisions in the future. 
+ </p>
+	<p>This process has also made me wonder the extent to which data and graphs have been processed, altered, and influenced by different external parties before I view it. In the age of short attention spans and a mass of short-form content, documentation and sources for data visualizations floating around social media platforms is often sparse, leading to potential bias and misinformation. If I myself struggle to differentiate between my own earnest and deceptive design strategies, how can I tell if a stranger’s design rationale, which is often unknown, is earnest or deceptive?  </p>
+	<p>By constructing these graphs, I believe that how earnest or deceptive a visualization is mainly the designer’s intention, backed by logically sound and reasonable design decisions. Similar to decisions in everyday life, whether an action is earnest or deceptive is really in the eye of the beholder, influenced greatly by the actor’s explanation. While it is hard to communicate abstract notions like “ethics” into our analysis and visualizations, I believe the act of trying to ground our design decisions on these morales already qualifies it as ethical. Other than extreme cases, I cannot distinguish between acceptable persuasive choices vs misleading ones without hearing the data visualization designer’s context, documentation, and voice - that decision would be too subjective to make alone. Only by reading or hearing the thought process and moral framing of a data design can I decide if it is acceptable or misleading. Overall, I think that it is the reasoning of the data visualization designer, their explanation, documentation, and honestly, that make a visualization earnest, and therefore deserving of the trust of readers. </p>
     </section>
 	</main>
 
